@@ -17,6 +17,7 @@ ISO_DATE_FORMAT_RESPONSE = "%Y-%m-%dT00:00:00Z"
 # Generates a random User-Agent to prevent getting blacklisted
 headers = {"User-Agent": UserAgent().random}
 
+
 def get_name_of_site(camp_id):
     """Sends a request to retrieve the name of the campground, given its ID number
     :param camp_id: the campground's ID number
@@ -70,7 +71,7 @@ def consecutive_nights(available, nights):
     """
     ordinal_dates = [datetime.strptime(dstr, ISO_DATE_FORMAT_RESPONSE).toordinal() for dstr in available]
     c = count()
-    longest_consecutive = max((list(g) for _, g in groupby(ordinal_dates, lambda x: x-next(c))), key=len)
+    longest_consecutive = max((list(g) for _, g in groupby(ordinal_dates, lambda x: x - next(c))), key=len)
     return len(longest_consecutive) >= nights
 
 
@@ -172,10 +173,13 @@ def master_scraping_routine(campgrounds, start_date, end_date, campsite_type=Non
             campground_information = scrape_campground_availability(
                 camp_id, start_date, end_date, campsite_type
             )
+            print('campground info: ', campground_information)
             name_of_site = get_name_of_site(camp_id)
+            print('name of site: ', name_of_site)
             current, maximum = get_num_available_sites(
                 campground_information, start_date, end_date
             )
+            print("current: ", current)
             if current:
                 # emoji = SUCCESS_EMOJI
                 success = True
@@ -196,7 +200,7 @@ def master_scraping_routine(campgrounds, start_date, end_date, campsite_type=Non
         except KeyError:
             pass
     # If no results were found...
-    if len(results_list)<1:
+    if len(results_list) < 1:
         return False
     # Return results to view
     return results_list, start_string, end_string
