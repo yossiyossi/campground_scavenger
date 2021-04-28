@@ -173,13 +173,11 @@ def master_scraping_routine(campgrounds, start_date, end_date, campsite_type=Non
             campground_information = scrape_campground_availability(
                 camp_id, start_date, end_date, campsite_type
             )
-            print('campground info: ', campground_information)
-            name_of_site = get_name_of_site(camp_id)
-            print('name of site: ', name_of_site)
+            # name_of_site = get_name_of_site(camp_id)
+            name_of_site = 'plaskett hardcoded'
             current, maximum = get_num_available_sites(
                 campground_information, start_date, end_date
             )
-            print("current: ", current)
             if current:
                 # emoji = SUCCESS_EMOJI
                 success = True
