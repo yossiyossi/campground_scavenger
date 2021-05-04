@@ -174,7 +174,7 @@ def master_scraping_routine(campgrounds, start_date, end_date, campsite_type=Non
                 camp_id, start_date, end_date, campsite_type
             )
             # name_of_site = get_name_of_site(camp_id)
-            name_of_site = 'plaskett hardcoded'
+            name_of_site = 'camp id:'
             current, maximum = get_num_available_sites(
                 campground_information, start_date, end_date
             )

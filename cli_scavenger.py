@@ -5,9 +5,14 @@ import tweepy
 from apps.scavenger import check
 import json
 
-CAMPGROUNDS = "231959"  # plaskett
-START_DATE = "2021-04-24"
-END_DATE = "2021-04-25"
+# north pines 232449
+# lower pines 232450
+# upper pines 232447
+# plaskett 231959
+
+CAMPGROUNDS = "232449 232450 232447"  # all yosemite
+START_DATE = "2021-05-14"
+END_DATE = "2021-05-16"
 
 # twitter stuff
 USER_TO_TWEET_AT = 'yossiberg'
